@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Job Details</title>
+</head>
+<body>
+    <h1>{{ job['job_name'] }}</h1>
+    <p><strong>Notes:</strong> {{ job['notes'] }}</p>
+    <p><strong>Inspection Approved:</strong> {% if job['approved'] %}Yes{% else %}No{% endif %}</p>
+    <h2>Room Videos</h2>
+    <ul>
+        {% for video in videos %}
+            <li>
+                <video width="320" height="240" controls>
+                    <source src="{{ url_for('uploaded_file', filename=video['filename']) }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('index') }}"><button>Back to Jobs</button></a>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Job</title>
+</head>
+<body>
+    <h1>Add a Job</h1>
+    <form method="post" enctype="multipart/form-data">
+        <input type="text" name="job_name" placeholder="Job Name" required><br>
+        <textarea name="notes" placeholder="Notes"></textarea><br>
+        <label>Room Videos (open camera):</label>
+        <input type="file" name="videos" accept="video/*" capture="environment" multiple><br>
+        <label>
+            <input type="checkbox" name="approved"> Inspection Approved
+        </label><br>
+        <button type="submit">Add Job</button>
+    </form>
+    <a href="{{ url_for('index') }}"><button>Back to Jobs</button></a>
+</body>
+</html>

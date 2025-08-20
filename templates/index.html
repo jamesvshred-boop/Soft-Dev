@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Jobs List</title>
+</head>
+<body>
+    <h1>Jobs</h1>
+    <a href="{{ url_for('add_job') }}"><button>Add Job</button></a>
+    <ul>
+        {% for job in jobs %}
+            <li>
+                <a href="{{ url_for('job_detail', job_id=job['id']) }}">{{ job['job_name'] }}</a>
+                {% if job['approved'] %}✔️{% else %}❌{% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
